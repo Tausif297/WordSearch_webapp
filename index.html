@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Word | Search </title>
+</head>
+
+<style>
+    body {
+        background: blueviolet;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    select,
+    option {
+        width: 30%;
+        text-align-last: center;
+        text-transform: uppercase;
+    }
+</style>
+
+<body>
+    <div class="container text-center">
+        <div class="flex flex-wrap">
+            <h1>Find The Count Of Any Word In Your Sentence</h1>
+            <div class="my-4">
+                <label for="alphabets">Check The Count Of Letter : </label>
+                <select name="alphabets" id="alphabet">
+                    <option value=" "> </option>
+                    <option value="A">a</option>
+                    <option value="B">b</option>
+                    <option value="C">c</option>
+                    <option value="D">d</option>
+                    <option value="E">e</option>
+                    <option value="F">f</option>
+                    <option value="G">g</option>
+                    <option value="H">h</option>
+                    <option value="I">i</option>
+                    <option value="J">j</option>
+                    <option value="K">k</option>
+                    <option value="L">l</option>
+                    <option value="M">m</option>
+                    <option value="N">n</option>
+                    <option value="O">o</option>
+                    <option value="P">p</option>
+                    <option value="Q">q</option>
+                    <option value="R">r</option>
+                    <option value="S">s</option>
+                    <option value="T">t</option>
+                    <option value="U">u</option>
+                    <option value="V">v</option>
+                    <option value="W">w</option>
+                    <option value="X">x</option>
+                    <option value="Y">y</option>
+                    <option value="Z">z</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="0">0</option>
+                </select>
+                <label for="message">* After selecting Word Kindly Click on Find Button</label>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Your Sentence Here" id="sentence">
+                <input class="btn btn-light px-4" type="button" onclick="count_word()" value="Find">
+            </div>
+            <h1 id="count"></h1>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <script>
+        function count_word() {
+            var str = document.getElementById('sentence').value.toLowerCase();
+            var opt = document.getElementById('alphabet').value.toLowerCase();
+            var opt2 = new RegExp(opt, 'g');
+            var word_count = str.match(opt2);
+            if (word_count != null) {
+                document.getElementById('count').innerHTML = "You Have '" + word_count.length + "'&nbsp;&nbsp;'" + opt + "' in your sentence"
+            } else if (str == null, opt == " ") {
+                document.getElementById('count').innerHTML = "You didn't have anything in your sentence"
+            } else {
+                document.getElementById('count').innerHTML = "You didn't have '" + opt + "' in your sentence"
+            }
+        }
+    </script>
+</body>
+
+</html>
